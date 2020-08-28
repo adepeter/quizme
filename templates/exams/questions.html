@@ -5,6 +5,9 @@
 {% block content %}
 <div class="mainblok">
     <div class="phdr">{{ story.headline }} Questions</div>
+    <div class="rmenu">
+        {{ story.content | linebreaksbr }}
+    </div>
     <div class="gmenu">
         <form method="POST" action="">
             {% csrf_token %}
