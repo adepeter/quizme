@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Instructions{% endblock %}
+
+{% block content %}
+    <div class="mainblok">
+        <div class="phdr">Please read carefully</div>
+        <div class="gmenu">
+            <div class="rmenu">{{ story.headline }} instruction</div>
+            <h1>Duration of test:</h1> <h2>30 minutes</h2>
+            <br/>
+            <h2>Instructions</h2>
+            {{ story.instruction | linebreaksbr }}
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="submit" value="Take me to test"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

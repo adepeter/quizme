@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Success{% endblock %}
+
+{% block content %}
+    <div class="mainblok">
+        <div class="phdr">Dear {{ request.user.username }}</div>
+        <div class="gmenu">
+            <h1>Dear {{ request.user.username }} your score for this test is {{ score }}%</h1>
+            <br/>
+            <h2>Remark:</h2> {% if score >= 75 %}
+            <h3>You performed well and met the cut off</h3>
+        {% else %}
+            <h3>You did not pass this cut score for this assessment. You could try again later</h3>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

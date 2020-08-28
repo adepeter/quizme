@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Questions{% endblock %}
+
+{% block content %}
+<div class="mainblok">
+    <div class="phdr">{{ story.headline }} Questions</div>
+    <div class="gmenu">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="mainblok">
+        <div class="phdr">Login</div>
+        <h1>Information</h1>
+        To login please use:<br/>
+        <h2>username: freeuser</h2>
+        <h2>password: freeuser</h2>
+        <div class="gmenu">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="hidden" name="{{ next }}"/>
+                <input type="submit" value="Login"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}
