@@ -1,1 +1,1 @@
-web: gunicorn quizme.wsgi --log-file
+web: gunicorn quizme.wsgi --log-file -
