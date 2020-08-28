@@ -4,7 +4,7 @@ from .models import Question, Answer, Story, Score
 
 class AnswerStackedInline(admin.StackedInline):
     model = Answer
-    extras = 4
+    extras = 5
 
 
 @admin.register(Story)
@@ -31,12 +31,12 @@ class QuestionAdmin(admin.ModelAdmin):
     answer.short_description = 'Correct answer'
 
 
-@admin.register(Answer)
+# @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
     list_display = ['question', 'text', 'is_answer']
     list_filter = ['question']
 
 
-@admin.register(Score)
+# @admin.register(Score)
 class ScoreAdmin(admin.ModelAdmin):
     list_display = ['user', 'value', 'story']
