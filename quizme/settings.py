@@ -26,7 +26,7 @@ SECRET_KEY = 'jeae7gh+_c*r$ys&)7k6q6^n#vj)*or&kq@_(1#e=-=1537@19'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['foundyview.herokuapp.com', '*', '127.0.0.1']
 
 # Application definition
 
@@ -121,6 +121,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+STATIC_ROOT = PurePath(BASE_DIR).joinpath('static')
 
 CACHES = {
     'default': {
