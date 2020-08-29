@@ -1,4 +1,7 @@
+import markdown
 from django.contrib import admin
+from django.utils.safestring import mark_safe
+
 from .models import Question, Answer, Story, Score
 
 
@@ -6,13 +9,22 @@ class AnswerStackedInline(admin.StackedInline):
     model = Answer
     extras = 5
 
+class QuestionStackedInline(admin.StackedInline):
+    model = Question
+    extras = 10
+
 
 @admin.register(Story)
 class StoryAdmin(admin.ModelAdmin):
     list_display = [
         'headline',
-        'content'
     ]
+    readonly_fields = ['passage']
+    inlines = [QuestionStackedInline]
+
+    def passage(self, obj):
+        return mark_safe(markdown.markdown(obj.content))
+    passage.short_description = 'Passage preview'
 
 
 @admin.register(Question)

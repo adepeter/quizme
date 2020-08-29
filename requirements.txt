@@ -6,3 +6,4 @@ gunicorn
 whitenoise
 django-heroku
 requests
+markdown

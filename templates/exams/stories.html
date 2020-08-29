@@ -5,9 +5,15 @@
 {% block content %}
     <div class="mainblok">
         <div class="phdr">Stories</div>
+        <div class="list1">
+            <h1>Welcome to Young Foundation Interview Portal</h1>
+            Please choose an story to get started
+        </div>
         {% for story in stories %}
             <div class="{% cycle 'rmenu' 'gmenu' %}">
-                <a href="{% url 'instruction' story.id %}">{{ story.headline }}</a>
+                <h4>
+                    &bull;&nbsp;<a href="{% url 'instruction' story.id %}">{{ story.headline }}</a>
+                </h4>
             </div>
         {% endfor %}
     </div>

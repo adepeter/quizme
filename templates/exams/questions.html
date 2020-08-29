@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load exam_tags %}
 {% block title %}Questions{% endblock %}
 
 {% block content %}
@@ -12,7 +12,12 @@
     <div class="gmenu">
         <form method="POST" action="">
             {% csrf_token %}
-            {{ form.as_p }}
+            {% for field in form %}
+                <div class="{% cycle 'list1' 'list2' %}">
+                {{ field.label | markdown | linebreaksbr }}
+                {{ field }}
+                </div>
+            {% endfor %}
             <input type="submit" value="Submit" />
         </form>
     </div>
